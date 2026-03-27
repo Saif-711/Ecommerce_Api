@@ -3,63 +3,23 @@ package Ecommerce.project.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 500)
-    private String title;
+    @Column(nullable = false, length = 255)
+    private String name;
 
-    @Column(length = 5000)
+    @Column(nullable = false, length = 1000)
     private String description;
 
-    private String category;
-
+    @Column(nullable = false)
     private Double price;
 
+    @Column(nullable = false)
     private Integer stock;
-
-    private String image;
-
-    private Integer discount;
-
-    private Double discountPrice;
-
-    private Boolean isActive;
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
-    }
-
-    public Double getDiscountPrice() {
-        return discountPrice;
-    }
-
-    public void setDiscountPrice(Double discountPrice) {
-        this.discountPrice = discountPrice;
-    }
-
-    public Integer getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(Integer discount) {
-        this.discount = discount;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public Integer getStock() {
         return stock;
@@ -77,14 +37,6 @@ public class Product {
         this.price = price;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -93,12 +45,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getId() {
