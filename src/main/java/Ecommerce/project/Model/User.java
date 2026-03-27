@@ -43,7 +43,7 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "role")
     private Role role;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
