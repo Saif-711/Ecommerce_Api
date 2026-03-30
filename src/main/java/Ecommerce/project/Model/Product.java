@@ -15,6 +15,16 @@ public class Product {
     @Column(nullable = false, length = 1000)
     private String description;
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    private String image;
+
     @Column(nullable = false)
     private Double price;
 
@@ -60,4 +70,6 @@ public class Product {
     public void setId(Integer id) {
         this.id = id;
     }
+
+
 }
