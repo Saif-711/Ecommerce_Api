@@ -1,11 +1,9 @@
 import { Navigate } from "react-router-dom";
-
-export default function ProtectedRoute({ children }) {
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    return <Navigate to="/" />;
-  }
-
+import { useAuth } from "../../contexts/AuthContext";
+ 
+export default function ProtectedRoute({ children, adminOnly = false }) {
+  const { isAuthenticated, user } = useAuth();
+  if (!isAuthenticated)            return <Navigate to="/login"    replace />;
+  if (adminOnly && !user?.isAdmin) return <Navigate to="/products" replace />;
   return children;
 }
